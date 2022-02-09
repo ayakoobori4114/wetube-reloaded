@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/ayakoobori4114/wetube-reloaded#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2" 
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
