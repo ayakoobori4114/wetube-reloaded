@@ -12,7 +12,6 @@ const logger = morgan("dev");
 app.use(logger);
 
 //Global router 만들기
-
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);

@@ -1,10 +1,11 @@
 import express from "express";
+import { join } from "../controllers/userControllers";
+import { trending } from "../controllers/videoControllers";
 
 const globalRouter = express.Router();
 
-const handleHome = (rea, res) => res.send("Home");
-
-globalRouter.get("/", handleHome);
+globalRouter.get("/", trending);
+globalRouter.get("/join", join);
 
 export default globalRouter;
 //변수를 export 함. 하지않으면 에러
