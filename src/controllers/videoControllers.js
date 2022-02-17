@@ -1,7 +1,15 @@
 export const trending = (req, res) => res.send("Home Page Videos");
-
-export const watch = (req, res) => res.send("Wathc");
-export const edit = (req, res) => res.send("Edit");
+export const see = (req, res) => {
+  console.log(req.params); //이렇게 하고 url/123142 하면 id: 123142 의 값이 콘솔에 찍힘
+  return res.send("Watch");
+};
+export const edit = (req, res) => {
+  console.log(req.params);
+  res.send("Edit");
+};
+export const search = (req, res) => res.send("Search");
+export const upload = (req, res) => res.send("Upload");
+export const deleteVideo = (req, res) => res.send("Delete Video");
 
 //export default trending;
 //export default는 하나밖에 못함
