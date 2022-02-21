@@ -9,9 +9,12 @@ const PORT = 4000;
 const app = express(); //express application설계를 위한 규칙 / express function
 //express와 관랸된 코드는 express application을 만들고 나서 진행해야됨. 다음부터 코드를 작성 (샌드위치같이)
 const logger = morgan("dev");
-app.use(logger);
 
-//Global router 만들기
+// console.log(process.cwd());//현재위치
+
+app.set("view engine", "pug"); //express 에서 pug 사용 방법/ 뷰엔진을 퍼그로 사용
+app.set("views", process.cwd() + "/src/views");
+app.use(logger);
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);

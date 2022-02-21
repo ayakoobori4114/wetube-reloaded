@@ -10,7 +10,7 @@ const videoRouter = express.Router();
 
 videoRouter.get("/upload", upload);
 videoRouter.get("/:id(\\d+)", see); //express 가 number만 받을것임
-videoRouter.get("/:id(\\d+)/edit", edit);
+videoRouter.get("/:id(\\d+)/edit", edit); // /:id 에는 이름을 붙여줄 것임 request.params.id로 불러와야 하기 때문
 videoRouter.get("/:id(\\d+)/delete", deleteVideo);
 //:id란 ? 이름은 바뀌어도됨. 이것은 parameter 파라미터임
 //이걸로 url안에 변수를 포함시킬 수 있게 해줌. 변수란 ?url/url/url/2231 숫자가 변수임. 페이지마다 다름
@@ -23,4 +23,5 @@ videoRouter.get("/:id(\\d+)/delete", deleteVideo);
 //regular Expression
 //(dong\w+) 는 dong으로 시작하는걸 선택함. \w는 문자열을 뜻함 \d 는 number
 //donggoo, dongkim is name me dongkoo  ===> dong포함된건 다 선택됨
+//express router 의 power
 export default videoRouter;
