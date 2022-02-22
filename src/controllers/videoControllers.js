@@ -5,10 +5,8 @@ export const trending = (req, res) => res.render("home"); //렌더링 home이 vi
 //--> app.set("views", process.cwd() + "/src/views"); 하면 적상작동
 export const see = (req, res) => res.render("watch");
 // console.log(req.params); //이렇게 하고 url/123142 하면 id: 123142 의 값이 콘솔에 찍힘
-export const edit = (req, res) => {
-  // console.log(req.params);
-  res.send("Edit");
-};
+export const edit = (req, res) => res.render("edit");
+// console.log(req.params);
 export const search = (req, res) => res.send("Search");
 export const upload = (req, res) => res.send("Upload");
 export const deleteVideo = (req, res) => res.send("Delete Video");
