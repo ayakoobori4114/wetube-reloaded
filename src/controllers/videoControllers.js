@@ -1,10 +1,17 @@
-const fakeUser = {
-  username: "Koo",
-  loggedIn: true,
-};
-
-export const trending = (req, res) =>
-  res.render("home", { pageTitle: "Home", fakeUser: fakeUser }); //렌더링 home이 view임 그래서 home임 (pug)
+export const trending = (req, res) => {
+  const videos = [
+    {
+      title: "Hello",
+    },
+    {
+      title: "Video #2",
+    },
+    {
+      title: "Whats up",
+    },
+  ];
+  return res.render("home", { pageTitle: "Home", videos });
+}; //렌더링 home이 view임 그래서 home임 (pug)
 //pug에 변수를 만들어 옆에 {} 해서 변수명: "작성" 하면됨
 //하지만 error이 뜸. home.pug는 view폴더가 아니라 src폴더 안에 있기 때문!
 //nodejs 는 package.json에서 작동하기때문에 그 디렉토리가 현재 작업 디렉토리가 되는것**
