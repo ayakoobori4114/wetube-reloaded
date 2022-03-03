@@ -1,30 +1,30 @@
+let videos = [
+  {
+    title: "First Video",
+    rating: 5,
+    comments: 2,
+    createdAt: "2 minutes ago",
+    views: 59,
+    id: 1,
+  },
+  {
+    title: "Second Video",
+    rating: 5,
+    comments: 3,
+    createdAt: "1 minutes ago",
+    views: 50,
+    id: 2,
+  },
+  {
+    title: "Third Video",
+    rating: 5,
+    comments: 2,
+    createdAt: "2 minutes ago",
+    views: 59,
+    id: 3,
+  },
+];
 export const trending = (req, res) => {
-  const videos = [
-    {
-      title: "First Video",
-      rating: 5,
-      comments: 2,
-      createdAt: "2 minutes ago",
-      views: 59,
-      id: 1,
-    },
-    {
-      title: "Second Video",
-      rating: 5,
-      comments: 3,
-      createdAt: "1 minutes ago",
-      views: 50,
-      id: 2,
-    },
-    {
-      title: "Third Video",
-      rating: 5,
-      comments: 2,
-      createdAt: "2 minutes ago",
-      views: 59,
-      id: 1,
-    },
-  ];
   return res.render("home", { pageTitle: "Home", videos });
 }; //렌더링 home이 view임 그래서 home임 (pug)
 //pug에 변수를 만들어 옆에 {} 해서 변수명: "작성" 하면됨
@@ -32,7 +32,11 @@ export const trending = (req, res) => {
 //nodejs 는 package.json에서 작동하기때문에 그 디렉토리가 현재 작업 디렉토리가 되는것**
 //그러면 어떻게 해야하냐. app.set("views")를 사용함
 //--> app.set("views", process.cwd() + "/src/views"); 하면 적상작동
-export const see = (req, res) => res.render("watch");
+export const see = (req, res) => {
+  const { id } = req.params;
+  const video = videos[id - 1];
+  return res.render("watch", { pageTitle: `Watching ${video.title}` });
+};
 // console.log(req.params); //이렇게 하고 url/123142 하면 id: 123142 의 값이 콘솔에 찍힘
 export const edit = (req, res) => res.render("edit");
 // console.log(req.params);
